@@ -3,7 +3,7 @@ import random
 # Question 1: Use list comprehension to update the code below and
 # assign my_list to be a list of 200 random integers ranging in values
 # between 25 and 500. Hint: Use the randint function
-my_list = [1,2,3,4,5] # replace the code to the left
+my_list = [random.randint(200) for num in range(25,501)] # replace the code to the left
 
 # Question 2 (4 parts): Cast my_list to a set and re-assign to my_list as a list.
 # How many duplicate values were removed?
@@ -19,42 +19,42 @@ print('-'*40)
 print()
 
 # Question 3: What is the largest integer in my_list?
-largest_val = 5 # replace the code to the left
+largest_val = max(my_list) # replace the code to the left
 print(f"Largest integer in my_list: {largest_val}")
 print('-'*40)
 print()
 
 # Question 4: What is the smallest value in my_list?
-smallest_val = 1 # replace the code to the left
+smallest_val = min(my_list) # replace the code to the left
 print(f"Smallest integer in my_list: {smallest_val}")
 print('-'*40)
 print()
 
 # Question 5: Create a tuple with the exact same values as my_list
 # name it my_tuple
-my_tuple = (1,2,3,4,5) # replace the code to the left
+my_list = my_tuple # replace the code to the left
 
 # Question 6: What are the last 3 values of my_tuple?
-my_tuple_last_val = 5 # replace the code to the left
-my_tuple_sec_last_val = 4 # replace the code to the left
-my_tuple_third_last_val = 3 # replace the code to the left
+my_tuple_last_val = my_tuple[-1] # replace the code to the left
+my_tuple_sec_last_val = my_tuple[-2] # replace the code to the left
+my_tuple_third_last_val = my_tuple[-3] # replace the code to the left
 print(f"The last 3 values of the tuple are {(my_tuple_third_last_val,my_tuple_sec_last_val,my_tuple_last_val)}")
 print('-'*40)
 print()
 
 # Question 7: Create a new tuple with all the values of my_tuple in
 # reversed order
-my_new_tuple = (5,4,3,2,1) # replace the code to the left
+my_new_tuple = my_tuple[::-1] # replace the code to the left
 
 # Question 8: Does the first value of my_new_tuple match my_tuple_last_val?
 # Enter in the conditional below that will evaluate to True or False
-comparison = True # replace the code to the left
+comparison = my_new_tuple[0] == my_tuple_last_val # replace the code to the left
 print(f"First integer of my_tuple matches last integer of my_new_tuple is a {comparison} statement")
 print('-'*40)
 print()
 
 # Question 9: Create a new tuple with the first 5 values of my_new_tuple
-my_other_tuple = (5,4,3,2,1) # replace the code to the left
+my_other_tuple = my_new_tuple[:5] # replace the code to the left
 print(f"My newly created 5 integer tuple is {my_other_tuple}")
 print('-'*40)
 print()
@@ -63,7 +63,7 @@ print()
 # the last 5 integers in my_list? replace the boolean below with
 # a conditional that evaluates to True or False. You can use other variables
 # below as you need to complete this.
-tuple_and_list_comp = True # replace the code to the left
+tuple_and_list_comp = sorted(my_other_tuple) == my_list[len(my_list)-5:] # replace the code to the left
 print(f"Integers in my_other_tuple match the last 5 integers of my_list is a {tuple_and_list_comp} statement")
 print('-'*40)
 print()
@@ -72,7 +72,7 @@ print()
 # store it in my_match
 my_requirements = {'ruby','python'}
 available_languages = {"comp sci", "physics", "elec engr", "philosophy", "python"}
-my_match = 'comp sci' # replace the code to the left
+my_match = my_requirements.intersection(available_languages) # replace the code to the left
 print(f"I can take {my_match} since I need it and it's available")
 print('-'*40)
 print()
@@ -97,5 +97,9 @@ word_dict = {'a':
                 }
             }
 
-my_al_list = ['hi'] # replace the code to the left
+my_al_list = []
+for letter, dict in word_dict.items():
+    for meaning in dict.values():
+        my_al_list.append(meaning)
+
 print(f"The meanings in the dictionary are {my_al_list}")
