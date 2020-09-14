@@ -1,1 +1,1 @@
-# python-exercises-Just some python exercises that i've encountered :)
+Just some python exercises that i've encountered :)
